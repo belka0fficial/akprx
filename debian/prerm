@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+case "$1" in
+    remove|upgrade|deconfigure)
+        systemctl stop akprx.service || true
+        systemctl disable akprx.service || true
+    ;;
+esac
+
+#DEBHELPER#

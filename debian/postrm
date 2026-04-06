@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+case "$1" in
+    purge)
+        # Remove data and venv only on purge (apt purge akprx)
+        rm -rf /var/lib/akprx
+        rm -rf /usr/lib/akprx
+
+        # Remove system user and group
+        if getent passwd akprx > /dev/null 2>&1; then
+            deluser --system akprx || true
+        fi
+        if getent group akprx > /dev/null 2>&1; then
+            delgroup --system akprx || true
+        fi
+
+        systemctl daemon-reload || true
+    ;;
+
+    remove)
+        # Remove venv but keep secrets/adaptors data
+        rm -rf /usr/lib/akprx
+        systemctl daemon-reload || true
+    ;;
+esac
+
+#DEBHELPER#

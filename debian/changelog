@@ -1,0 +1,15 @@
+akprx (1.0.0-1) stable; urgency=low
+
+  * Initial release
+  * FastAPI broker daemon on 127.0.0.1:8080
+  * Adaptor registry — register, list, show, remove API providers
+  * Secret management — add, list, remove, rotate keys (values never exposed)
+  * Generic /call proxy — any REST API, any method
+  * akprx check — validates service, adaptors, and key pairing
+  * Auto-restart service after key add, rotate, remove
+  * CLI — akprx status, adaptor, key, call, check, version
+  * Debian package with automated postinst setup
+  * Locked system user, localhost only, ProtectSystem=full
+  * MIT license
+
+ -- Belka <belka0fficial@github.com>  Mon, 06 Apr 2026 00:00:00 +0300

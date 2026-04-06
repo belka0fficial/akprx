@@ -1,0 +1,6 @@
+akprx/*.py usr/lib/akprx/akprx
+akprx/server/*.py usr/lib/akprx/akprx/server
+akprx/store/*.py usr/lib/akprx/akprx/store
+akprx/cli/*.py usr/lib/akprx/akprx/cli
+bin/akprx usr/bin
+lib/systemd/system/akprx.service lib/systemd/system

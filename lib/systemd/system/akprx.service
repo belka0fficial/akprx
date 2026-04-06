@@ -1,0 +1,22 @@
+[Unit]
+Description=akprx — Agent Key Proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=akprx
+Group=akprx
+WorkingDirectory=/var/lib/akprx
+EnvironmentFile=-/var/lib/akprx/secrets/secrets.env
+ExecStart=/usr/lib/akprx/venv/bin/uvicorn akprx.server.app:app --host 127.0.0.1 --port 8080
+Environment=PYTHONPATH=/usr/lib/akprx
+Restart=always
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+ReadWritePaths=/var/lib/akprx
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+Source: akprx
+Section: utils
+Priority: optional
+Maintainer: Belka <belka0fficial@github.com>
+Build-Depends: debhelper (>= 13), dh-python, python3-all, python3-setuptools
+Standards-Version: 4.6.2
+Homepage: https://github.com/belka0fficial/akprx
+Rules-Requires-Root: no
+
+Package: akprx
+Architecture: all
+Depends: ${misc:Depends}, python3 (>= 3.10), python3-venv, adduser, systemd
+Description: Agent Key Proxy — credential broker daemon for AI agents on Linux
+ akprx sits between your AI agent and external APIs.
+ The agent sends requests through akprx, which injects the real
+ API credentials internally and returns only the response.
+ The agent never sees a token, key, or password.
+ .
+ Runs as a locked system user on localhost only.
+ Managed via the akprx CLI.
