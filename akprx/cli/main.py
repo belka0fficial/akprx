@@ -58,6 +58,10 @@ def main() -> None:
         from akprx.cli.call import run
         run(args[1:]); sys.exit(0)
 
+    if cmd == "check":
+        from akprx.cli.check import run
+        run(); sys.exit(0)
+
     print(f"akprx: unknown command '{cmd}'", file=sys.stderr)
     print("run 'akprx --help' to see available commands.", file=sys.stderr)
     sys.exit(1)
