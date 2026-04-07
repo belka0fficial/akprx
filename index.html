@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>akprx — Agent Key Proxy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #24292f; background: #fff; }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .badge { display: inline-block; background: #1f883d; color: #fff; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 12px; margin-bottom: 16px; }
+    h1 { font-size: 32px; font-weight: 600; margin-bottom: 8px; }
+    .tagline { font-size: 18px; color: #57606a; margin-bottom: 32px; }
+    h2 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; border-bottom: 1px solid #d0d7de; padding-bottom: 8px; }
+    p { margin-bottom: 12px; color: #24292f; }
+    pre { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; font-size: 14px; overflow-x: auto; margin-bottom: 12px; }
+    code { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 4px; padding: 2px 6px; font-size: 13px; }
+    .commands { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin-bottom: 12px; }
+    .commands div { font-family: monospace; font-size: 14px; padding: 2px 0; }
+    .cmd { color: #0550ae; font-weight: 600; }
+    .desc { color: #57606a; }
+    a { color: #0550ae; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .links { margin-top: 40px; padding-top: 20px; border-top: 1px solid #d0d7de; font-size: 14px; color: #57606a; }
+    .links a { margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">v1.0.0</div>
+    <h1>akprx</h1>
+    <p class="tagline">Agent Key Proxy — credential broker daemon for AI agents on Linux</p>
+    <p>Your AI agent needs to call external APIs. You do not want it holding the keys. <strong>akprx</strong> sits in the middle — the agent sends a request, akprx injects the real credential, returns only the result. The agent never sees a token.</p>
+    <h2>Install</h2>
+    <pre>curl -fsSL https://belka0fficial.github.io/akprx/install-unsigned.sh | sudo bash</pre>
+    <p>Or manually:</p>
+    <pre>echo "deb [trusted=yes] https://belka0fficial.github.io/akprx stable main" | sudo tee /etc/apt/sources.list.d/akprx.list
+sudo apt update && sudo apt install akprx</pre>
+    <h2>Quickstart</h2>
+    <pre>akprx status
+akprx key add GITHUB_TOKEN
+akprx adaptor add
+akprx call github /repos/youruser/yourrepo
+akprx check</pre>
+    <h2>Commands</h2>
+    <div class="commands">
+      <div><span class="cmd">akprx status</span> <span class="desc">— service health, keys, adaptors</span></div>
+      <div><span class="cmd">akprx check</span> <span class="desc">— validate everything is configured correctly</span></div>
+      <div><span class="cmd">akprx adaptor add</span> <span class="desc">— register a new API provider</span></div>
+      <div><span class="cmd">akprx adaptor list</span> <span class="desc">— list registered providers</span></div>
+      <div><span class="cmd">akprx adaptor remove &lt;n&gt;</span> <span class="desc">— remove a provider</span></div>
+      <div><span class="cmd">akprx key add &lt;n&gt;</span> <span class="desc">— store a key (hidden input)</span></div>
+      <div><span class="cmd">akprx key list</span> <span class="desc">— list key names (no values)</span></div>
+      <div><span class="cmd">akprx key rotate &lt;n&gt;</span> <span class="desc">— replace a key value</span></div>
+      <div><span class="cmd">akprx call &lt;adaptor&gt; &lt;path&gt;</span> <span class="desc">— make an authenticated API call</span></div>
+    </div>
+    <h2>Security</h2>
+    <p>Runs as a locked system user on <code>127.0.0.1:8080</code> only. Secret files are owned by the <code>akprx</code> user — unreadable by the agent. Credentials are never returned via the API.</p>
+    <div class="links">
+      <a href="https://github.com/belka0fficial/akprx">GitHub</a>
+      <a href="https://github.com/belka0fficial/akprx/releases">Releases</a>
+      <a href="https://github.com/belka0fficial/akprx/issues">Issues</a>
+    </div>
+  </div>
+</body>
+</html>

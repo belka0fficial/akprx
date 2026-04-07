@@ -1,0 +1,24 @@
+Origin: akprx
+Label: akprx
+Suite: stable
+Codename: stable
+Architectures: amd64 all
+Components: main
+Description: akprx — Agent Key Proxy
+Date: Tue, 07 Apr 2026 06:28:39 +0000
+MD5Sum:
+ 84c3f82d8f1691151f71ba54bd542e71              177 Release
+ a352762cb4dbf1822913a6b26f922ac1              858 main/binary-amd64/Packages
+ 61c9708b9ea3e2e2ac1be4b6ea7ba6bc              591 main/binary-amd64/Packages.gz
+SHA1:
+ 457fb2abc47ec7e708e88de8d4bda1319d330e47              177 Release
+ b76020b7108204a5a665b6418c950a65e3a03d3d              858 main/binary-amd64/Packages
+ d72422b04957188227d67cd241f5c0a61d442515              591 main/binary-amd64/Packages.gz
+SHA256:
+ e3d9d84f32e75b6a921cc7e9bb2c5313626f6e0768ee53a832f770a281dd4710              177 Release
+ 9e98716f43b1e3688aab689b58366fae4a89d7b90fc723484b5834c85881c3ce              858 main/binary-amd64/Packages
+ e382b609e448431f0d9529d9ce202f6384bc7ff6d1be2f148cfe6d77b7cd4954              591 main/binary-amd64/Packages.gz
+SHA512:
+ 7ff41a6f864d6dfd69d5f1e7a0a51b2f381447c8fece441c043d5941f68f261637e732b3d9861327e628b61474f75753d2853e2cc55a03a9d7c032312b6fbbc2              177 Release
+ ed46399c30960d6bf937ef98540ac1fb2e90d901487e31c257297158c84b4b01cce7fb86ed341d2e0a2a29f41823a6bbcf503613499f199aa15c68b914dc4fdb              858 main/binary-amd64/Packages
+ e544052c72d8a091444e2711fa10d974686836c0f4ff1b9b25b8a46a4941cd3d2847110b529d3428538895e86aeeed03d4f16049d2ec248b20f85261cddebb46              591 main/binary-amd64/Packages.gz
